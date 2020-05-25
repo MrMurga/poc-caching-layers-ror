@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>                
+  <body>
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="<%= in_memory_cache_path %>">In-Memory Cache</a></li>
@@ -20,8 +20,15 @@
         <li><a href="<%= view_cache_path %>">View Cache</a></li>
     </ul>
     <br />
-    <div style="border: 1px dotted; padding: 1em">
+    <div id="body">
     <%= yield %>
     </div>
+
+    <!-- Free, no attribution required: https://pixabay.com/photos/mountain-landscape-mountains-2031539/ -->
+    <div id="image">
+      Example of asset
+      <a href="<%= image_path ('image') %>" target="image"><img src="<%= image_path ('image') %>" /></a>
+    </div>
+
   </body>
 </html>

@@ -17,8 +17,23 @@ body {
     font-family: monospace;
 }
 
+#image {
+    margin: 0px auto;
+    max-width: 500px;
+}
+
+#image img {
+    width: auto;
+    max-width: 500px;
+}
+
 #tracked-view {
     position: fixed;
     right: 1px;
     top: 1px;
+}
+
+#body {
+    border: 1px dotted; 
+    padding: 1em;
 }

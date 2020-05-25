@@ -6,7 +6,7 @@ class BrowserCacheController < ApplicationController
 
     def short_ttl
         expires_in ttl, public: true
-        work description: "[#{SecureRandom.uuid}] The content of this page is set to expire every #{ttl} seconds, but it does not refresh because the etag is the same. Important: know this behaviour"
+        work description: "[#{SecureRandom.uuid}] The content of this page is set to expire every #{ttl} seconds, but may not refresh because the etag is the same. Important: know this behaviour"
     end
 
     def indefinite_with_tracker
@@ -33,7 +33,7 @@ class BrowserCacheController < ApplicationController
         }
 
         if stale? etag: etag
-            work description: "[#{etag}] This page is cached but will refresh every #{ttl} seconds because the ETag will change"
+            work description: "[#{etag}] This page is cached but will refresh every #{ttl} seconds because the ETag will change. Note that the etag is computed everytime, so there's server work"
         end
     end
 
