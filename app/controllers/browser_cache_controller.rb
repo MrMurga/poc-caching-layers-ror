@@ -12,7 +12,7 @@ class BrowserCacheController < ApplicationController
     def indefinite_with_tracker
         tracker = <<-JS
             <div id="tracked-view">
-                <iframe src="#{pixel_tracker_path}" width="200" height="50"></iframe>
+                <iframe src="#{pixel_tracker_path}"></iframe>
             </div>
         JS
         work description: "[#{SecureRandom.uuid}] The content of this page does not refresh, but homepage views are tracked. Current views: #{cookies[:views] || 'N/A'}<br /><br />#{tracker}"
