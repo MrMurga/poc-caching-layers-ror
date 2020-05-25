@@ -1,0 +1,14 @@
+TTL for this view is <%= ttl %> seconds<br />
+<%
+    bms = helper.benchmark do |x|
+        x.report("Total execution time]:") do
+            cache 'view_cache_index', expires_in: ttl do
+            %>
+                Executing work [<%= SecureRandom.uuid %>] for <%= helper.no_cache.total %> seconds <br />
+            <%
+            end
+        end
+    end
+%>
+<br />
+<%= bms.last.html_safe %>

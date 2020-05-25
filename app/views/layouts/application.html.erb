@@ -9,7 +9,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body>                
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="<%= in_memory_cache_path %>">In-Memory Cache</a></li>
+        <li><a href="<%= browser_cache_indefinite_path %>">Browser Cache Indefinite</a></li>
+        <li><a href="<%= browser_cache_short_ttl_path %>">Browser Cache Short TTL</a></li>
+        <li><a href="<%= browser_cache_etag_based_on_content_short_ttl_path %>">Browser Cache Static ETAG Short TTL</a></li>
+        <li><a href="<%= view_cache_path %>">View Cache</a></li>
+    </ul>
+    <br />
+    <div style="border: 1px dotted; padding: 1em">
     <%= yield %>
+    </div>
   </body>
 </html>

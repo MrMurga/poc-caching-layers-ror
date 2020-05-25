@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
     def index
-        render plain: 'ok'
+        render template: 'render_content', locals: { description: '', content: '' }
     end
 end
