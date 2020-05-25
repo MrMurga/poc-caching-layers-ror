@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get '/browser-cache-indefinite', to: 'browser_cache#indefinite'
   get '/browser-cache-short-ttl', to: 'browser_cache#short_ttl'
-  get '/browser-cache-etag-based-on-content-short-ttl', to: 'browser_cache#etag_based_on_content_short_ttl'
+  get '/browser-cache-etag-based-on-content', to: 'browser_cache#etag_based_on_content'
+  get '/browser_cache_indefinite_with_tracker', to: 'browser_cache#indefinite_with_tracker'
+  get '/pixel_tracker', to: 'browser_cache#pixel_tracker'
 
   get '/view-cache', to: 'view_cache#index'
 end

@@ -3,6 +3,10 @@ require "benchmark"
 module BenchmarkHelper
     IN_MEMORY_CACHE_KEY = 'BenchmarkHelperCache'
 
+    def ttl
+        5.seconds
+    end
+
     def benchmark
         bms = Benchmark.bm(30) do |x|
             yield x
@@ -21,7 +25,7 @@ module BenchmarkHelper
 
     def cache
         Benchmark.measure do
-            Rails.cache.fetch IN_MEMORY_CACHE_KEY, expires_in: 5.seconds do
+            Rails.cache.fetch IN_MEMORY_CACHE_KEY, expires_in: ttl do
                 long_memory_task
             end
         end

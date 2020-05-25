@@ -16,3 +16,9 @@
 body {
     font-family: monospace;
 }
+
+#tracked-view {
+    position: fixed;
+    right: 1px;
+    top: 1px;
+}

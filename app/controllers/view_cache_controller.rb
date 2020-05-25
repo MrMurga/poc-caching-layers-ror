@@ -5,7 +5,7 @@ class ViewCacheController < ApplicationController
     def index
         bm = Object.new
         bm.extend(BenchmarkHelper)
-        render locals: { helper: bm, ttl: 5.seconds}
+        render locals: { helper: bm, ttl: ttl }
     end
     
     private

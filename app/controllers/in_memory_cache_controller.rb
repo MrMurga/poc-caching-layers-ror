@@ -9,7 +9,7 @@ class InMemoryCacheController < ApplicationController
             x.report("No cache:") { no_cache }
         end
 
-        render template: 'render_content', locals: { content: bms.join('<br />').html_safe }
+        render template: 'render_content', locals: { description: "[#{SecureRandom.uuid}] In-Memory caching example", content: bms.join('<br />').html_safe }
     end
 
     private
