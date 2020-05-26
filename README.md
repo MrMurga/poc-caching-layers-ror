@@ -1,18 +1,22 @@
 # README
 
-Enable caching in development mode
-`rails dev:cache`
+This is a RoR application. Pretty barebone. However, this repo shows you how to use different caching layers, and lets you mimic some of the behaviour that could be used in conjunction with Lambda@Edge.
 
-# Dependencies
+
+# Installing app and Dependencies
+Enable caching in development mode
+```rails dev:cache```
+```bundle install```
 
 Install imagemagic
 `brew install imagemagic`
 
-## Run locally
-`bundle install`
+## Running Prod / Dev locally
+
+Local dev:
 `rails s`
 
-## Run production mode
+Local prod:
 `rails assets:precompile`
 `RAILS_SERVE_STATIC_FILES=true rails server -e production`
 
