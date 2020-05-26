@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/pixel_tracker', to: 'browser_cache#pixel_tracker'
 
   get '/view-cache', to: 'view_cache#index'
+
+  get '/image-optimizer', to: 'image_optimizer#index'
 end

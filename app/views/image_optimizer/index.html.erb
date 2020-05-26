@@ -1,0 +1,56 @@
+
+<!-- Free, no attribution required: https://pixabay.com/photos/mountain-landscape-mountains-2031539/ -->
+<div id="image">
+    <h2>Example of optimized asset</h2>
+    This example doesn't work well in non-production mode. <br /><br />
+
+    <span class="images">
+        <strong>Not optimized:</strong>
+        <a href="<%= image_path('image.jpg') %>" target="image"><%= image_tag('image.jpg') %></a>
+    </span>
+
+    <span class="images">
+        <strong>Optimized:</strong>
+        <a href="<%= image_path('image.jpg', { optimized: 'true' }) %>" optimized="true" target="image"><%= image_tag('image.jpg', { optimized: 'true' }) %></a>
+    </span>
+
+    <span class="images">
+        <strong>WebP Optimized:</strong>
+        <a href="<%= image_path('image.jpg', { optimized: 'true', webp: 'true' }) %>" optimized="true" target="image"><%= image_tag('image.jpg', { optimized: 'true', webp: 'true' }) %></a>
+    </span>
+</div>
+
+<div id="status">Waiting to optimize</div>
+
+<script>
+    $(function() {
+        $('[webp=true').each(function() {
+            let val = ''
+            if ($(this).attr('src') !== undefined) {
+                val = this.src.replace('jpg', 'jpg.webp')
+                console.log("Updating to: " + val);
+                $(this).attr('src', val);
+            } else if ($(this).attr('href') !== undefined) {
+                val = this.href.replace('jpg', 'jpg.webp')
+                console.log("Updating to: " + val);
+                $(this).attr('href', val);
+            }
+        });
+    });
+    
+    setTimeout(() => {
+        $('[optimized=true').each(function() {
+            let val = ''
+            if ($(this).attr('src') !== undefined) {
+                val = this.src.replace('small', 'original')
+                console.log("Updating to: " + val);
+                $(this).attr('src', val);
+            } else if ($(this).attr('href') !== undefined) {
+                val = this.href.replace('small', 'original')
+                console.log("Updating to: " + val);
+                $(this).attr('href', val);
+            }
+        });
+        $('#status').html('done');
+    }, 4000);
+</script>
