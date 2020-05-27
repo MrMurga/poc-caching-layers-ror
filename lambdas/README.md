@@ -17,3 +17,5 @@ https://aws.amazon.com/blogs/networking-and-content-delivery/dynamically-route-v
 https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-examples.html
 https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html
 
+## Framework for testing lambdas
+See ./redirect_to_webp/test.js

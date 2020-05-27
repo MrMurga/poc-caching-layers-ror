@@ -1,0 +1,68 @@
+{
+    "tests": [
+        {
+            "label": "Get page",
+            "input": {
+                "Records": [
+                    {
+                        "cf": {
+                            "config": {
+                                "distributionId": "EXAMPLE"
+                            },
+                            "request": {
+                                "uri": "/product/cashout",
+                                "method": "GET",
+                                "clientIp": "2001:cdba::3257:9652",
+                                "headers": {
+                                    "user-agent": [
+                                        {
+                                            "key": "User-Agent",
+                                            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36"
+                                        }
+                                    ],
+                                    "host": [
+                                        {
+                                            "key": "Host",
+                                            "value": "d123.cf.net"
+                                        }
+                                    ],
+                                    "cookie": [
+                                        {
+                                            "key": "Cookie",
+                                            "value": "SomeCookie=1; AnotherOne=A; X-Experiment-Name=B"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "output": {
+                "uri": "/product/cashout",
+                "method": "GET",
+                "clientIp": "2001:cdba::3257:9652",
+                "headers": {
+                    "user-agent": [
+                        {
+                            "key": "User-Agent",
+                            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36"
+                        }
+                    ],
+                    "host": [
+                        {
+                            "key": "Host",
+                            "value": "d123.cf.net"
+                        }
+                    ],
+                    "cookie": [
+                        {
+                            "key": "Cookie",
+                            "value": "SomeCookie=1; AnotherOne=A; X-Experiment-Name=B"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
