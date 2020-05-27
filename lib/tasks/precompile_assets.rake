@@ -12,7 +12,7 @@ namespace 'assets' do
       directory = "#{prefix}/#{dirname}"
 
       unless File.directory? directory
-        FileUtils.mkdir directory
+        FileUtils.mkdir(directory)
       end
     end
   end

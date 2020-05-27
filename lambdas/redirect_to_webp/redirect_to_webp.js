@@ -1,5 +1,13 @@
 'use strict';
 
+/**
+ * This lambda rewrites an origin request for JPG or PNG to WebP assets
+ * Lambda Type: Origin Request
+ * Headers required: user-agent
+ */
+
+const DEBUGGING = false;
+
 function isImageAsset(filename) {
     if (filename == null) {
         return false;
@@ -9,7 +17,12 @@ function isImageAsset(filename) {
     return filename.match(pattern) != null;
 }
 
-// origin request based user-agent
+function log(str) {
+    if (DEBUGGING) {
+        console.log(str);
+    }
+}
+
 exports.handler = async (event, context, callback) => {
     const request = event.Records[0].cf.request;
     const headers = request.headers;
@@ -24,6 +37,6 @@ exports.handler = async (event, context, callback) => {
         }
     }
 
-    console.log(`Request uri is "${request.uri}"`);
+    log(`Request uri is rewritten to "${request.uri}"`);
     callback(null, request);
 };
