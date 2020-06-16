@@ -6,7 +6,7 @@ namespace 'assets' do
   
   desc 'Prepare folders'
   task :prepare_folders do
-    prefix = 'public/assets'
+    prefix = './public/assets'
     
     %w(original large medium small).each do |dirname|
       directory = "#{prefix}/#{dirname}"
@@ -19,7 +19,7 @@ namespace 'assets' do
   
   desc "Resizes assets"
   task :resize do
-    my_files = FileList['public/**/*.jpg', 'public/**/*.webp']
+    my_files = FileList['./public/**/*.jpg', './public/**/*.webp']
     my_files.each do |file|
       (folder, name) = File.split(file)
 
@@ -42,7 +42,7 @@ namespace 'assets' do
   
   desc "Convert assets to webp"
   task :webp do
-    my_files = FileList['public/**/*.jpg']
+    my_files = FileList['./public/**/*.jpg']
     my_files.each do |file|
       sh "convert #{file} #{file}.webp"
     end
@@ -51,8 +51,8 @@ end
 
 # every time you execute 'rake assets:precompile'
 # run 'before_assets_precompile' first    
-#Rake::Task['assets:precompile'].enhance do
-#  Rake::Task['assets:prepare_folders'].invoke
-#  Rake::Task['assets:webp'].invoke
-#  Rake::Task['assets:resize'].invoke
-#end
+Rake::Task['assets:precompile'].enhance do
+  Rake::Task['assets:prepare_folders'].invoke
+  Rake::Task['assets:webp'].invoke
+  Rake::Task['assets:resize'].invoke
+end
