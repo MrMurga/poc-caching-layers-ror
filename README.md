@@ -22,3 +22,5 @@ Local prod:
 
 # Rake tasks
 Adding a new rake task called `precompile_assets` that runs through image files and performs conversions when `rake assets:precompile` runs
+
+.
